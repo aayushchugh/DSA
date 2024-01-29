@@ -2,6 +2,7 @@
 
 #define MAX_NUM 1000  // Adjust this value based on your needs
 
+// [1,2,3,3,4,5,6,6]
 void findRepeatingNumbers(int arr[], int n) {
     int frequency[MAX_NUM] = {0};
     for(int i = 0; i < n; i++) {
