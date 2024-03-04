@@ -6,24 +6,34 @@ struct Node {
   struct Node* next;
 };
 
-struct Node* traverseAndReturnLastNode(struct Node* ptr) {
+/**
+ * Traverse through the linked list and also return the tail node
+ * @param head head pointer of the linked list
+ * @returns tail node of the linked list
+*/
+struct Node* traverseAndReturnLastNode(struct Node* head) {
   struct Node* tailNode;
 
-  while (ptr != NULL)
+  while (head != NULL)
   {
-    printf("Element %d\n", ptr -> data);
+    printf("Element %d\n", head -> data);
 
     // find the last node
-    if (ptr -> next == NULL) {
-      tailNode = ptr;
+    if (head -> next == NULL) {
+      tailNode = head;
     }
 
-    ptr = ptr -> next;
+    head = head -> next;
   }
 
   return tailNode;
 }
 
+/**
+ * Insert a new node at the end of linked list
+ * @param data data of new 
+ * @param tailNode tail node of the linked list
+*/
 void insertAtEnd(int data, struct Node* tailNode) {
   // occupy more memory for new element
   struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
