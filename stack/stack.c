@@ -2,11 +2,11 @@
 #include <stdbool.h>
 #define MAX 4
 
-int stack_arr[MAX];
+int stack_arr[SIZE];
 int top = -1;
 
 bool isEmpty() {
-  return top == MAX - 1;
+  return top == SIZE - 1;
 }
 
 void push(int data) {
@@ -20,7 +20,7 @@ void push(int data) {
 }
 
 void printStack() {
-  for(int i=0;i<MAX;i++){
+  for(int i=0;i<SIZE;i++){
   printf("%d \n",stack_arr[i]);}
 }
 
