@@ -1,16 +1,20 @@
 #include <stdio.h>
 #include <stdbool.h>
-#define MAX 4
+#define SIZE 4
 
 int stack_arr[SIZE];
 int top = -1;
 
-bool isEmpty() {
+bool isFull() {
   return top == SIZE - 1;
 }
 
+bool isEmpty() {
+  return top == -1;
+}
+
 void push(int data) {
-  if (isEmpty()) {
+  if (isFull()) {
     printf("Stack overflowed");
     return;
   }
@@ -19,8 +23,22 @@ void push(int data) {
   stack_arr[top] = data;
 }
 
+void pop() {
+  // check if stack is already empty
+  if (isEmpty()) {
+    printf("Stack is empty");
+    return;
+  }
+
+  top--;
+}
+
 void printStack() {
-  for(int i=0;i<SIZE;i++){
+  if (isEmpty()) {
+    printf("Stack is empty \n");
+    return;
+  }
+  for(int i=0;i<=top;i++){
   printf("%d \n",stack_arr[i]);}
 }
 
@@ -32,5 +50,11 @@ int main() {
   push(12);
 
   printStack();
+  printf("Popping \n");
+
+  pop();
+
+  printStack();
+
   return 0;
 }
